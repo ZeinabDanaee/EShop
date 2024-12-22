@@ -1,4 +1,6 @@
 using IDP.Application.Handler.Command.User;
+using IDP.Domain.IRepository.Command;
+using IDP.Infra.Repository;
 using MediatR;
 using System.Reflection;
 
@@ -11,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(UserHandler).GetTypeInfo().Assembly);
+builder.Services.AddScoped<IUserRepository,UserRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

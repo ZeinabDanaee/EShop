@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace IDP.Application.Command.User
 {
-    public class UserCommand:IRequest<Boolean>
+    public class UserCommand : IRequest<Boolean>
     {
-        [Required(ErrorMessage ="نام الزامی هست")]
-        [MinLength(4)]
-        public required string  Name { get; set; }
-        public int age { get; set; }
+        public string? FullName { get; set; }
+        public required string CodeMeli { get; set; }
     }
 }
