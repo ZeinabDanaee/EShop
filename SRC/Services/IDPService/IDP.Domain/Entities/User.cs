@@ -11,6 +11,10 @@ namespace IDP.Domain.Entities
     {
         public string? FullName { get; set; }
         public  required string CodeMeli { get; set; }
+         public required string UserName { get; set; }
+         public required string Password { get; set; }
+         public required string Salt { get; set; }
+         public required string MobileNumber { get; set; }
 
     }
 }
