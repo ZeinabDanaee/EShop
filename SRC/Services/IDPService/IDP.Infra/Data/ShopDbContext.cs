@@ -10,10 +10,10 @@ using IDP.Domain.Entities;
 
 namespace IDP.Infra.Data
 {
-    public class ShopDbContext:DbContext
+    public class ShopCommandDbContext:DbContext
     {
         protected readonly IConfiguration Configration;
-        public ShopDbContext(IConfiguration configuration)
+        public ShopCommandDbContext(IConfiguration configuration)
         {
             Configration=configuration; 
         }
