@@ -10,6 +10,6 @@ namespace IDP.Application.Command.Auth
 {
     public class AuthCommand:IRequest<bool>
     {
-        public required string  MobiltNumber { get; set; }
+        public required string  MobileNumber { get; set; }
     }
 }

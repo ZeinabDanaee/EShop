@@ -1,15 +1,9 @@
-﻿using IDP.Domain.Entities;
+﻿using IDP.Domain.DTO;
 using IDP.Domain.IRepository.Command;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Json;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace IDP.Infra.Repository.Command
 {
@@ -29,21 +23,21 @@ namespace IDP.Infra.Repository.Command
             return true;
         }
 
-        public async Task<Otp> GetData(string mobile)
+    
+        public async Task<Otp> Getdata(string mobile)
         {
-           var data=_distributedCache.GetString(mobile);
+            var data = _distributedCache.GetString(mobile);
             if (data == null) return null;
-           
-          var otpobj=JsonConvert.DeserializeObject<Otp>(data);
+            var otpobj = JsonConvert.DeserializeObject<Otp>(data);
             return otpobj;
         }
 
-        public Task<Otp> Insert(Otp entity)
+        public async Task<Otp> Insert(Otp entity)
         {
             var time = Convert.ToInt32(_configuration.GetSection("Otp:OtpTime").Value);
 
             _distributedCache.SetString(entity.UserName.ToString(),JsonConvert.SerializeObject(entity),new DistributedCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(time)).SetAbsoluteExpiration(TimeSpan.FromMinutes(time)));
-            return null;
+            return  entity;
         }
 
         public Task<bool> Update(Otp entity)

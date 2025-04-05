@@ -12,12 +12,15 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="DotNetCore.CAP" Version="8.3.3" />
+    <PackageReference Include="MassTransit" Version="8.4.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Auth\Auth.csproj" />
+    <ProjectReference Include="..\..\EventBus\EventBus.csproj" />
     <ProjectReference Include="..\IDP.Infra\IDP.Infra.csproj" />
   </ItemGroup>
 

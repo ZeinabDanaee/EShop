@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace IDP.Infra.Migrations
+namespace IDP.Infra.Migrations.ShopQueryDb
 {
-    [DbContext(typeof(ShopCommandDbContext))]
-    partial class ShopDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ShopQueryDbContext))]
+    partial class ShopQueryDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -58,7 +58,7 @@ namespace IDP.Infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("users");
+                    b.ToTable("Tbl_Users");
                 });
 #pragma warning restore 612, 618
         }
